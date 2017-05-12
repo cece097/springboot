@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>shanshan</groupId>
+  <artifactId>spring.boot</artifactId>
+  <version>${shanshan.version}</version>
+  <packaging>pom</packaging>
+  <name>shanshan-spring-boot</name>
+  <description>springboot配置相关小程序</description>
+  
+  <properties>
+    <shanshan.version>0.0.2-SNAPSHOT</shanshan.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <log4jdbc.version>1.15</log4jdbc.version>
+    <jdk.version>1.8</jdk.version>
+  </properties>
+  
+  <dependencyManagement>
+	<dependencies>
+		<dependency>
+			<!-- Import dependency management from Spring Boot -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-dependencies</artifactId>
+			<version>1.5.2.RELEASE</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+  </dependencyManagement>
+  
+  <plugins>
+	<!-- compiler插件, 设定JDK版本 -->
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<version>3.3</version>
+		<configuration>
+			<source>${jdk.version}</source>
+			<target>${jdk.version}</target>
+			<showWarnings>true</showWarnings>
+		</configuration>
+	</plugin>
+
+	<!-- war打包插件, 设定war包名称不带版本号 -->
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-war-plugin</artifactId>
+		<version>2.6</version>
+		<configuration>
+			<warName>${project.artifactId}</warName>
+		</configuration>
+	</plugin>
+
+	<!-- 忽略单元测试 -->
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-surefire-plugin</artifactId>
+		<version>2.18.1</version>
+		<configuration>
+			<skip>true</skip>
+		</configuration>
+	</plugin>
+
+	<!-- 生成域对象的QDomain -->
+	<plugin>
+		<groupId>com.mysema.maven</groupId>
+		<artifactId>apt-maven-plugin</artifactId>
+		<version>1.1.3</version>
+		<executions>
+			<execution>
+				<phase>generate-sources</phase>
+				<goals>
+					<goal>process</goal>
+				</goals>
+				<configuration>
+					<outputDirectory>target/generated-sources</outputDirectory>
+					<processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor</processor>
+				</configuration>
+			</execution>
+		</executions>
+	</plugin>
+  </plugins>
+  
+  <modules>
+  	<module>spring.boot.common</module>
+  </modules>
+</project>
