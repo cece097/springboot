@@ -82,5 +82,6 @@
   
   <modules>
   	<module>spring.boot.common</module>
+  	<module>spring.boot.jpa</module>
   </modules>
 </project>
