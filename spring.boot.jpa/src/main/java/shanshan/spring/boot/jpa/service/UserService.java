@@ -24,5 +24,5 @@ public interface UserService {
 	 * @param name
 	 * @return
 	 */
-//	public List<UserModel> getByName(String name);
+	public List<UserModel> getByName(String name);
 }

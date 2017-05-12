@@ -1,6 +1,7 @@
 package shanshan.spring.boot.jpa.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import shanshan.spring.boot.common.constant.RedisKeyConstant;
 import shanshan.spring.boot.common.model.UserModel;
 import shanshan.spring.boot.jpa.common.UserDTOUtil;
+import shanshan.spring.boot.jpa.entity.user.User;
 import shanshan.spring.boot.jpa.redis.SampleRedisUtil;
 import shanshan.spring.boot.jpa.repository.UserRepository;
 import shanshan.spring.boot.jpa.service.UserService;
@@ -50,15 +52,15 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
-//	@Override
-//	public List<UserModel> getByName(String name) {
-//		logger.info("query user by name : {}",name);
-//		List<User> entityList =  userRepository.nativeQuery("select * from test_user u where u.NAME like ?1", "%"+name+"%");
-//		List<UserModel> modelList = new ArrayList<>();
-//		entityList.stream().forEach(user -> {
-//										modelList.add(UserDTOUtil.getUserModel(user));
-//									});
-//		return modelList;
-//	}
+	@Override
+	public List<UserModel> getByName(String name) {
+		logger.info("query user by name : {}",name);
+		List<User> entityList =  userRepository.nativeQuery("select * from test_user u where u.NAME like ?1", "%"+name+"%");
+		List<UserModel> modelList = new ArrayList<>();
+		entityList.stream().forEach(user -> {
+										modelList.add(UserDTOUtil.getUserModel(user));
+									});
+		return modelList;
+	}
 
 }
