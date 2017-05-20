@@ -68,5 +68,6 @@
   	<module>spring.boot.common</module>
   	<module>spring.boot.jpa</module>
   	<module>spring.boot.web</module>
+  	<module>spring.boot.mongo</module>
   </modules>
 </project>

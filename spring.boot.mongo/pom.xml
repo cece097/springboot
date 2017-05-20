@@ -5,10 +5,9 @@
     <artifactId>spring.boot</artifactId>
     <version>${shanshan.version}</version>
   </parent>
-  
-  <artifactId>spring.boot.web</artifactId>
-  <name>shanshan-spring-boot-web</name>
-  <packaging>war</packaging>
+  <artifactId>spring.boot.mongo</artifactId>
+  <name>shanshan-spring-boot-mongo</name>
+  <packaging>jar</packaging>
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -16,44 +15,21 @@
   </properties>
   
   <dependencies>
-    
-    <dependency>
+  	<dependency>
       <groupId>shanshan</groupId>
-      <artifactId>spring.boot.jpa</artifactId>
-      <version>${shanshan.version}</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>shanshan</groupId>
-      <artifactId>spring.boot.mongo</artifactId>
+      <artifactId>spring.boot.common</artifactId>
       <version>${shanshan.version}</version>
     </dependency>
     
     <dependency>
 		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-web</artifactId>
+		<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		<exclusions>
-		  <exclusion>
-		    <groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		  </exclusion>
-		  <exclusion>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-		  </exclusion>
 		  <exclusion>
 		    <groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-logging</artifactId>
 		  </exclusion>
 		</exclusions>
 	</dependency>
-    
-    <dependency>
-	  <groupId>org.springframework.boot</groupId>
-	  <artifactId>spring-boot-starter-test</artifactId>
-	  <scope>test</scope>
-	</dependency>
-	
   </dependencies>
-  
 </project>

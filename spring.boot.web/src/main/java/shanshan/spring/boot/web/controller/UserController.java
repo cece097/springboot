@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import shanshan.spring.boot.common.model.UserModel;
 import shanshan.spring.boot.jpa.service.UserService;
+import shanshan.spring.boot.mongo.service.ActivityService;
 
 
 @Controller
@@ -21,6 +22,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ActivityService activityService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
@@ -33,7 +37,9 @@ public class UserController {
 	@ResponseBody
 	public UserModel getUserById(@PathVariable String id){
 		logger.info("query user by id {}", id);
-		return userService.getById(id);
+		UserModel user = userService.getById(id);
+		activityService.saveLog("tourist", "查询用户信息："+user.toString());
+		return user;
 	}
 	
 	/**

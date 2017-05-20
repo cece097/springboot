@@ -6,6 +6,9 @@
         <dependent-module archiveName="spring.boot.common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spring.boot.common/spring.boot.common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="spring.boot.mongo-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/spring.boot.mongo/spring.boot.mongo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/spring.boot.web/target/classes"/>
         <property name="context-root" value="spring.boot.web"/>
     </wb-module>
