@@ -11,4 +11,7 @@ public interface UserRepository extends ExpandRepository<User, String> {
 	
 	@Query("from User u where u.name = :name")
 	public User findByName(@Param("name") String name);
+
+	@Query("from User u where u.mobile = :mobile")
+	public User findByMobile(@Param("mobile") String mobile);
 }

@@ -8,7 +8,7 @@
 	</appender>
 
    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>D:/logs/spring-boot-web.log</file>
+		<file>D:/spring-boot-web-logs/spring-boot-web.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>D:/spring-boot-web-logs/%d{yyyy-MM,aux}/spring-boot.%d{yyyy-MM-dd}.log</fileNamePattern>
 		</rollingPolicy>

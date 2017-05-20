@@ -62,4 +62,16 @@ public class UserServiceImpl implements UserService {
 		return modelList;
 	}
 
+	@Override
+	public UserModel addNewUser(String mobile, String name) {
+		//手机号唯一性判断
+		if(userRepository.findByMobile(mobile)==null){
+			logger.info("add user [mobile : {}][name : {}]",mobile, name);
+			return UserDTOUtil.getUserModel(userRepository.save(new User(name, mobile)));
+		}else{
+			logger.warn("mobile is exist : {}",mobile);
+			return null;
+		}
+	}
+
 }

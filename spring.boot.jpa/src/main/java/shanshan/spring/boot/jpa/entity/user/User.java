@@ -31,6 +31,7 @@ public class User extends UuidBase{
 	}
 	
 	public User(String name, String mobile){
+		super();
 		this.name = name;
 		this.mobile = mobile;
 	}

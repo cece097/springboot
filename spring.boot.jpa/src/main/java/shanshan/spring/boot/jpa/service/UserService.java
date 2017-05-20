@@ -25,4 +25,12 @@ public interface UserService {
 	 * @return
 	 */
 	public List<UserModel> getByName(String name);
+	
+	/**
+	 * 新增用户
+	 * @param mobile
+	 * @param name
+	 * @return
+	 */
+	public UserModel addNewUser(String mobile, String name);
 }
