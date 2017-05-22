@@ -6,6 +6,7 @@ import java.lang.reflect.Type;
 import org.apache.thrift.TBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 
 import shanshan.spring.boot.mq.common.utils.ThriftUtils;
 
@@ -21,6 +22,7 @@ public abstract class AbstractMessageConsumer<T extends TBase<?, ?>> implements 
 	
 	private static final Logger logger = LoggerFactory.getLogger(AbstractMessageConsumer.class);
 	
+	@RabbitHandler
 	public final void handleMessage(byte[] message) {
 		try {
 			Class<T> tbaseClass = getTBaseClass();
