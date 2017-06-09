@@ -3,6 +3,7 @@ package shanshan.spring.boot.web.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +23,7 @@ import shanshan.spring.boot.mq.common.service.IProducer;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
 	
 	@Autowired
 	private UserService userService;
@@ -42,11 +43,24 @@ public class UserController {
 	 */
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public UserModel getUserById(@PathVariable String id){
+	public UserModel getUserById(HttpServletRequest req,@PathVariable String id){
+		req.getSession().setAttribute("111", "dddff");
 		logger.info("query user by id {}", id);
 		UserModel user = userService.getById(id);
 		activityService.saveLog("tourist", "查询用户信息："+user.toString());
 		return user;
+	}
+	
+	/**
+	 * spring session 读取
+	 * @param req
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/{id}/session", method = RequestMethod.GET)
+	@ResponseBody
+	public String getUserSession(HttpServletRequest req,@PathVariable String id){
+		return (String) req.getSession().getAttribute("111");  //dddff
 	}
 	
 	/**
