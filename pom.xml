@@ -79,5 +79,6 @@
   	<module>spring.boot.mongo</module>
   	<module>spring.boot.mq.common</module>
   	<module>spring.boot.mq.consumer</module>
+  	<module>spring.boot.interview</module>
   </modules>
 </project>
