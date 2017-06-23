@@ -39,7 +39,7 @@ public class ActivityPlan2{
 			Scanner in=new Scanner(System.in);
 			String str=in.nextLine().trim();
 			
-			n = Integer.valueOf(str);
+			n = Integer.parseInt(str);
 			start = new int[n];
 			end = new int[n];
 			for(int i=0; i<n; i++){

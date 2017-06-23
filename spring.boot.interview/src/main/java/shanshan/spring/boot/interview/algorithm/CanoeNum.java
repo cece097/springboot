@@ -64,7 +64,7 @@ public class CanoeNum {
 			Scanner in=new Scanner(System.in);
 			String str=in.nextLine().trim();
 			String[] inStr = str.split(" ");
-			n = Integer.valueOf(inStr[0]);
+			n = Integer.parseInt(inStr[0]);
 			m = Long.parseLong(inStr[1]);
 			
 			weight = new long[n];

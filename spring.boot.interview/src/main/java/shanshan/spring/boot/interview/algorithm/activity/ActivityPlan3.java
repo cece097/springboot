@@ -78,7 +78,7 @@ public class ActivityPlan3 {
 			Scanner in=new Scanner(System.in);
 			String str=in.nextLine().trim();
 			
-			n = Integer.valueOf(str);
+			n = Integer.parseInt(str);
 			start = new long[n];
 			end = new long[n];
 			for(int i=0; i<n; i++){

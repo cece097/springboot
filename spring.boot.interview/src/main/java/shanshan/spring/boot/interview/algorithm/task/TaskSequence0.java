@@ -1,4 +1,4 @@
-package shanshan.spring.boot.interview.algorithm;
+package shanshan.spring.boot.interview.algorithm.task;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
